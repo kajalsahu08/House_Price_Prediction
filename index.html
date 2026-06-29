@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>House Price Predictor</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
@@ -15,66 +15,65 @@
   </div>
 
   <div class="container">
-    <div class="card">
-      <h2>Enter Property Details</h2>
 
-      <div class="form-grid">
+    <p class="section-title">📍 Location</p>
 
-        <div class="form-group">
-          <label>Longitude</label>
-          <input type="number" id="longitude" placeholder="-118.25" step="0.01"/>
-        </div>
-
-        <div class="form-group">
-          <label>Latitude</label>
-          <input type="number" id="latitude" placeholder="34.05" step="0.01"/>
-        </div>
-
-        <div class="form-group">
-          <label>Housing Median Age</label>
-          <input type="number" id="housing_median_age" placeholder="29" min="1" max="52"/>
-        </div>
-
-        <div class="form-group">
-          <label>Total Rooms</label>
-          <input type="number" id="total_rooms" placeholder="2000"/>
-        </div>
-
-        <div class="form-group">
-          <label>Total Bedrooms</label>
-          <input type="number" id="total_bedrooms" placeholder="400"/>
-        </div>
-
-        <div class="form-group">
-          <label>Population</label>
-          <input type="number" id="population" placeholder="1200"/>
-        </div>
-
-        <div class="form-group">
-          <label>Households</label>
-          <input type="number" id="households" placeholder="400"/>
-        </div>
-
-        <div class="form-group">
-          <label>Median Income (in tens of thousands)</label>
-          <input type="number" id="median_income" placeholder="3.5" step="0.1"/>
-        </div>
-
-        <div class="form-group full-width">
-          <label>Ocean Proximity</label>
-          <select id="ocean_proximity">
-            <option value="3">NEAR BAY</option>
-            <option value="0">&lt;1H OCEAN</option>
-            <option value="1">INLAND</option>
-            <option value="2">ISLAND</option>
-            <option value="4">NEAR OCEAN</option>
-          </select>
-        </div>
-
-      </div>
-
-      <button class="btn" onclick="predict()">Predict Price</button>
+    <div class="form-group">
+      <label>Longitude</label>
+      <input type="number" id="longitude" placeholder="-118.25" step="0.01"/>
     </div>
+
+    <div class="form-group">
+      <label>Latitude</label>
+      <input type="number" id="latitude" placeholder="34.05" step="0.01"/>
+    </div>
+
+    <div class="form-group">
+      <label>Ocean Proximity</label>
+      <select id="ocean_proximity">
+        <option value="0">&lt;1H OCEAN</option>
+        <option value="1">INLAND</option>
+        <option value="2">ISLAND</option>
+        <option value="3">NEAR BAY</option>
+        <option value="4">NEAR OCEAN</option>
+      </select>
+    </div>
+
+    <p class="section-title">🏡 Property Details</p>
+
+    <div class="form-group">
+      <label>Housing Median Age (years)</label>
+      <input type="number" id="housing_median_age" placeholder="29" min="1" max="52"/>
+    </div>
+
+    <div class="form-group">
+      <label>Total Rooms</label>
+      <input type="number" id="total_rooms" placeholder="2000"/>
+    </div>
+
+    <div class="form-group">
+      <label>Total Bedrooms</label>
+      <input type="number" id="total_bedrooms" placeholder="400"/>
+    </div>
+
+    <p class="section-title">👥 Area Info</p>
+
+    <div class="form-group">
+      <label>Population</label>
+      <input type="number" id="population" placeholder="1200"/>
+    </div>
+
+    <div class="form-group">
+      <label>Households</label>
+      <input type="number" id="households" placeholder="400"/>
+    </div>
+
+    <div class="form-group">
+      <label>Median Income (in tens of thousands)</label>
+      <input type="number" id="median_income" placeholder="3.5" step="0.1"/>
+    </div>
+
+    <button class="btn" onclick="predict()">🔍 Predict Price</button>
 
     <div class="result-card" id="result-card" style="display:none;">
       <p class="result-label">Estimated House Value</p>
@@ -85,6 +84,7 @@
     <div class="error-card" id="error-card" style="display:none;">
       <p id="error-msg">Something went wrong.</p>
     </div>
+
   </div>
 
   <script src="{{ url_for('static', filename='js/script.js') }}"></script>
